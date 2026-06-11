@@ -1,7 +1,12 @@
 import "./App.css";
+import Form from "./Components/Form/Form.jsx";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Form />
+    </>
+  );
 }
 
 export default App;
