@@ -1,6 +1,9 @@
+import { useForm } from "react-hook-form";
 import "./Form.css";
 
 function Form() {
+  const { register, handleSubmit, formState = { errors } } = useForm();
+
   return (
     <div className="form-container">
       <h1>აგენტის დამატება</h1>
