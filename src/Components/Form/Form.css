@@ -34,8 +34,12 @@
   width: 100%;
 }
 
-.form input {
+.field {
   flex: 1;
+}
+
+.form input {
+  box-sizing: border-box;
   width: 100%;
   padding: 12px 16px;
   font-size: 14px;
