@@ -8,7 +8,9 @@ function Form() {
     watch,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: "onChange",
+  });
 
   const onSubmit = (data) => {
     console.log(data);
@@ -33,6 +35,7 @@ function Form() {
             <input
               type="text"
               placeholder="სახელი"
+              className={errors.name ? "error" : nameValue ? "success" : ""}
               {...register("name", {
                 required: "სახელი სავალდებულოა",
                 minLength: {
@@ -49,6 +52,9 @@ function Form() {
             <input
               type="text"
               placeholder="გვარი"
+              className={
+                errors.username ? "error" : usernameValue ? "success" : ""
+              }
               {...register("username", { required: "გვარი სავალდებულოა" })}
             />
 
@@ -61,6 +67,7 @@ function Form() {
             <input
               type="email"
               placeholder="ელ-ფოსტა"
+              className={errors.email ? "error" : emailValue ? "success" : ""}
               {...register("email", {
                 required: "ელ-ფოსტა სავალდებულოა",
                 pattern: {
@@ -77,11 +84,12 @@ function Form() {
             <input
               type="text"
               placeholder="ტელეფონის ნომერი"
+              className={errors.phone ? "error" : phoneValue ? "success" : ""}
               {...register("phone", {
                 required: "ტელეფონის ნომერი სავალდებულოა",
                 pattern: {
                   value: /^5\d{8}$/,
-                  message: "შეიყვანეთ სწორი მობილურის ნომერი",
+                  message: "შეიყვანეთ სწორი მობილურის ნომერი 5xxxxxxxx",
                 },
               })}
             />
