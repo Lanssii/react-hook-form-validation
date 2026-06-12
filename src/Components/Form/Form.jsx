@@ -14,6 +14,9 @@ function Form() {
 
   const onSubmit = (data) => {
     console.log(data);
+    alert("აგენტი წარმატებით დაემატა");
+
+    reset();
   };
 
   const nameValue = watch("name");
@@ -55,7 +58,13 @@ function Form() {
               className={
                 errors.username ? "error" : usernameValue ? "success" : ""
               }
-              {...register("username", { required: "გვარი სავალდებულოა" })}
+              {...register("username", {
+                required: "გვარი სავალდებულოა",
+                minLength: {
+                  value: 2,
+                  message: "გვარი უნდა შეიცავდეს მინიმუმ 2 სიმბოლოს",
+                },
+              })}
             />
 
             {errors.username && <p>{errors.username.message}</p>}
