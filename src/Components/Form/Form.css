@@ -62,6 +62,16 @@
   box-shadow: 0 0 0 2px #3b82f6, 0 4px 10px rgba(59, 130, 246, 0.15);
 }
 
+.field p {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #ef4444;
+}
+
+.error {
+  border: 2px solid #ef4444;
+}
+
 /* ------ BUTTONS ------ */
 .buttons {
   display: flex;

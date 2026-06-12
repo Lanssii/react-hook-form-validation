@@ -35,8 +35,14 @@ function Form() {
               placeholder="სახელი"
               {...register("name", {
                 required: "სახელი სავალდებულოა",
+                minLength: {
+                  value: 2,
+                  message: "სახელი უნდა შეიცავდეს მინიმუმ 2 სიმბოლოს",
+                },
               })}
             />
+
+            {errors.name && <p>{errors.name.message}</p>}
           </div>
 
           <div className="field">
@@ -45,6 +51,8 @@ function Form() {
               placeholder="გვარი"
               {...register("username", { required: "გვარი სავალდებულოა" })}
             />
+
+            {errors.username && <p>{errors.username.message}</p>}
           </div>
         </div>
 
@@ -53,8 +61,16 @@ function Form() {
             <input
               type="email"
               placeholder="ელ-ფოსტა"
-              {...register("email", { required: "ელ-ფოსტა დავალდებულოა" })}
+              {...register("email", {
+                required: "ელ-ფოსტა სავალდებულოა",
+                pattern: {
+                  value: /^\S+@\S+\.\S+$/,
+
+                  message: "ელ-ფოსტა არასწორია",
+                },
+              })}
             />
+            {errors.email && <p>{errors.email.message}</p>}
           </div>
 
           <div className="field">
@@ -63,8 +79,13 @@ function Form() {
               placeholder="ტელეფონის ნომერი"
               {...register("phone", {
                 required: "ტელეფონის ნომერი სავალდებულოა",
+                pattern: {
+                  value: /^5\d{8}$/,
+                  message: "შეიყვანეთ სწორი მობილურის ნომერი",
+                },
               })}
             />
+            {errors.phone && <p>{errors.phone.message}</p>}
           </div>
         </div>
 
