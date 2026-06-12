@@ -19,10 +19,7 @@ function Form() {
     reset();
   };
 
-  const nameValue = watch("name");
-  const usernameValue = watch("username");
-  const emailValue = watch("email");
-  const phoneValue = watch("phone");
+  const values = watch();
 
   const handleClear = () => {
     reset();
@@ -38,7 +35,7 @@ function Form() {
             <input
               type="text"
               placeholder="სახელი"
-              className={errors.name ? "error" : nameValue ? "success" : ""}
+              className={errors.name ? "error" : values.name ? "success" : ""}
               {...register("name", {
                 required: "სახელი სავალდებულოა",
                 minLength: {
@@ -56,9 +53,9 @@ function Form() {
               type="text"
               placeholder="გვარი"
               className={
-                errors.username ? "error" : usernameValue ? "success" : ""
+                errors.lastName ? "error" : values.lastName ? "success" : ""
               }
-              {...register("username", {
+              {...register("lastName", {
                 required: "გვარი სავალდებულოა",
                 minLength: {
                   value: 2,
@@ -67,7 +64,7 @@ function Form() {
               })}
             />
 
-            {errors.username && <p>{errors.username.message}</p>}
+            {errors.lastName && <p>{errors.lastName.message}</p>}
           </div>
         </div>
 
@@ -76,7 +73,7 @@ function Form() {
             <input
               type="email"
               placeholder="ელ-ფოსტა"
-              className={errors.email ? "error" : emailValue ? "success" : ""}
+              className={errors.email ? "error" : values.email ? "success" : ""}
               {...register("email", {
                 required: "ელ-ფოსტა სავალდებულოა",
                 pattern: {
@@ -93,7 +90,7 @@ function Form() {
             <input
               type="text"
               placeholder="ტელეფონის ნომერი"
-              className={errors.phone ? "error" : phoneValue ? "success" : ""}
+              className={errors.phone ? "error" : values.phone ? "success" : ""}
               {...register("phone", {
                 required: "ტელეფონის ნომერი სავალდებულოა",
                 pattern: {
