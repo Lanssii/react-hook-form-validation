@@ -19,8 +19,10 @@ function Form() {
     reset();
   };
 
+  // Watch form values to update input validation styles
   const values = watch();
 
+  // Reset all form fields
   const handleClear = () => {
     reset();
   };
