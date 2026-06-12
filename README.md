@@ -71,9 +71,9 @@ npm run dev
 
 ## Preview
 
-![App Screenshot](![alt text](image.png))
-![App Screenshot](![alt text](image-1.png))
-![App Screenshot](![alt text](image-2.png))
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
 
 ## 🧠 What I Learned
 
